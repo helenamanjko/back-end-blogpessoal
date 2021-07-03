@@ -1,7 +1,5 @@
 package org.generation.blogPessoal.model;
 
-
-
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -17,7 +15,6 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
 @Entity
 @Table(name = "tb_postagem")
 public class Postagem {
@@ -27,25 +24,41 @@ public class Postagem {
 	private long id;
 	
 	@NotNull
-	@Size(min = 5, max = 100)
+	@Size(min = 2, max = 100)
 	private String titulo;
 	
 	@NotNull
-	@Size(min = 10, max = 500)
+	@Size(min = 2, max = 500)
 	private String texto;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date date = new java.sql.Date(System.currentTimeMillis());
+	private Date data = new java.sql.Date(System.currentTimeMillis());
 	
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	private Tema tema;
-	
+
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	private Usuario usuario;
 
 	
+	public Postagem(long id, @NotNull @Size(min = 2, max = 100) String titulo,
+			@NotNull @Size(min = 2, max = 500) String texto, Date data, Tema tema) {
+		super();
+		this.id = id;
+		this.titulo = titulo;
+		this.texto = texto;
+		this.data = data;
+		this.tema = tema;
+	}
+	
+	public Postagem() {
+		super();
+	}
+
+
+
 	public long getId() {
 		return id;
 	}
@@ -70,12 +83,12 @@ public class Postagem {
 		this.texto = texto;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getData() {
+		return data;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setData(Date data) {
+		this.data = data;
 	}
 	
 	public Tema getTema() {
@@ -85,14 +98,6 @@ public class Postagem {
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 	
-
+	
 }
