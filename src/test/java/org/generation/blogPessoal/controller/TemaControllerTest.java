@@ -28,11 +28,11 @@ public class TemaControllerTest {
 	private Tema tema;
 	private Tema temaDois;
 	
-	@BeforeAll
-	public void start() {
-		tema = new Tema(1, "Dia a dia");
-		temaDois = new Tema(2,"Trabalho");
-	}
+	//@BeforeAll
+	//public void start() {
+	//	tema = new Tema(1, "Dia a dia");
+	//	temaDois = new Tema(2,"Trabalho");
+	//}
 	
 	@Test
 	public void deveRealizarPostTema() {

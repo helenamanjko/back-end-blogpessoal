@@ -26,10 +26,10 @@ public class TemaTest {
 	private final Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 	
 	
-	@BeforeEach
-	public void start() {
-		tema = new Tema(1L, "Dia a Dia ");
-	}
+	//@BeforeEach
+	//public void start() {
+	//	tema = new Tema(1L, "Dia a Dia ");
+	//}
 	
 	@Test
     public void testValidationAtributos(){
